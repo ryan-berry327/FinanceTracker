@@ -43,9 +43,10 @@ class DatabaseManager:
         return self.cursor.fetchall()
 
     # Delete a transaction by its ID
-    def delete_transaction(self,transaction_id):
-        self.cursor.execute("DELETE FROM transactions WHERE ID =?", (transaction_id))
+    def delete_transaction(self, transaction_id):
+        self.cursor.execute("DELETE FROM transactions WHERE id = ?", (transaction_id,))
         self.conn.commit()
+
 
     # Calculates the balance (total income - total expense)
     def get_balance(self):
